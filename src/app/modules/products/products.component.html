@@ -1,0 +1,19 @@
+<div class="container my-5">
+  <div class="my-3">
+    <app-search></app-search>
+  </div>
+
+  <div class="my-3">
+    <app-filter
+      [categories]="categories$ | async"
+      [(selectedCategory)]="selectedCategory"
+    ></app-filter>
+  </div>
+  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4">
+    @for (product of products$ | async; track $index) {
+    <div class="col">
+      <app-product-card [product]="product"></app-product-card>
+    </div>
+    }
+  </div>
+</div>

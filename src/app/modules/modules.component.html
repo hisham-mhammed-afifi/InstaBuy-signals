@@ -1,0 +1,48 @@
+<nav class="navbar navbar-expand-sm bg-body-tertiary">
+  <div class="container">
+    <a class="navbar-brand" routerLink="/">InstaBuy</a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      (click)="navbarOpened = !navbarOpened"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div
+      class="collapse navbar-collapse justify-content-between"
+      [class.show]="navbarOpened"
+      id="navbarSupportedContent"
+    >
+      <ul class="navbar-nav">
+        @for (item of navItems; track $index) {
+
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            [routerLink]="item.path"
+            routerLinkActive="active"
+          >
+            {{ item.label }}
+          </a>
+        </li>
+        }
+      </ul>
+      <div class="d-flex align-items-center">
+        <p class="mb-0">Hesham Afifi</p>
+        <button class="btn btn-dark mx-3">
+          Logout
+          <i class="bi bi-box-arrow-right"></i>
+        </button>
+        <a class="btn btn-link text-white position-relative">
+          <i class="fs-2 bi bi-cart4"></i>
+          <span
+            class="position-absolute top-0 start-100 mt-3 translate-middle badge rounded-pill bg-danger"
+          >
+            99
+          </span>
+        </a>
+      </div>
+    </div>
+  </div>
+</nav>
+<router-outlet />

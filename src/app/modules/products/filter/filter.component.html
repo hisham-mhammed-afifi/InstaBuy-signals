@@ -1,0 +1,14 @@
+<ul class="nav nav-pills gap-3">
+  @for (category of categories; track $index) {
+
+  <li class="nav-item">
+    <button
+      class="nav-link active"
+      [class.active]="category === selectedCategory"
+      (click)="selectedCategoryChange.emit(category)"
+    >
+      {{ category }}
+    </button>
+  </li>
+  }
+</ul>
