@@ -12,4 +12,9 @@ export class ProductService {
     const products$ = this.productsBackend.getAllProducts();
     return toSignal(products$, { initialValue: [] });
   }
+
+  getAllCategories() {
+    const category$ = this.productsBackend.getAllCategories();
+    return toSignal(category$, { initialValue: [] });
+  }
 }

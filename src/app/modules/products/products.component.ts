@@ -24,7 +24,7 @@ import { ProductService } from './services/product.service';
 })
 export class ProductsComponent implements OnInit {
   products = this.productsService.getAllProducts();
-  categories$!: Observable<string[]>;
+  categories = this.productsService.getAllCategories();
 
   selectedCategory = 'all';
 
@@ -33,9 +33,7 @@ export class ProductsComponent implements OnInit {
     private productsService: ProductService
   ) {}
 
-  ngOnInit(): void {
-    this.categories$ = this.productsBackend.getAllCategories();
-  }
+  ngOnInit(): void {}
 
   displayRating(rating: number): {
     stars: number;
