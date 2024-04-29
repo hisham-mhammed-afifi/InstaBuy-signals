@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, model, input } from '@angular/core';
 
 @Component({
   selector: 'app-filter',
@@ -8,7 +8,6 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
   styleUrl: './filter.component.scss',
 })
 export class FilterComponent {
-  @Input() categories: string[] | null = [];
-  @Input() selectedCategory: string = 'electronics';
-  @Output() selectedCategoryChange = new EventEmitter<string>();
+  categories = input.required<string[] | null>();
+  selectedCategory = model.required<string>();
 }
